@@ -13,7 +13,7 @@ class LoginController extends Controller
 
     public function login(Request $request)
     {
-       return view('pages.login');
+       
     }
 
     public function logout(Request $request)

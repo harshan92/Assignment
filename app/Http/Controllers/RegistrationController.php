@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\RegistrationRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use DB;
 class RegistrationController extends Controller
 {
@@ -23,7 +24,7 @@ class RegistrationController extends Controller
             $user->contact_no=$requsest->contact_no;
             $user->home_address=$requsest->contact_no;
             $user->email=$requsest->email;
-            $user->password=$requsest->password;
+            $user->password=Hash::make($requsest->password);
             $user->save();
             DB::commit();
             return back()->with('message', 'Registered!');
