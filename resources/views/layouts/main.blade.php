@@ -8,6 +8,7 @@
     <title>Assignment</title>
     <link rel="stylesheet" href="{{ asset('assets/bootstrap-5/css/bootstrap.min.css') }}">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    @yield('metas')
 </head>
 
 <body>
