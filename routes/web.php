@@ -8,10 +8,13 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::get('/', [HomeController::class,'index']);
-Route::get('/login', [LoginController::class,'index']);
-Route::post('/login_process', [LoginController::class,'login']);
-Route::get('/register', [RegistrationController::class,'index']);
-Route::post('/register_process', [RegistrationController::class,'register']);
-Route::get('/dashboard', [DashboardController::class,'index']);
-Route::get('/logout', [LoginController::class,'logout']);
+Route::get('/', [HomeController::class, 'index']);
+Route::get('/login', [LoginController::class, 'index'])->name('login');
+Route::post('/login_process', [LoginController::class, 'login']);
+Route::get('/register', [RegistrationController::class, 'index']);
+Route::post('/register_process', [RegistrationController::class, 'register']);
+
+Route::middleware(['web', 'auth'])->group(function () {
+    Route::get('/dashboard', [DashboardController::class, 'index']);
+    Route::post('/logout', [LoginController::class, 'logout']);
+});
