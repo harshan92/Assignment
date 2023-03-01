@@ -21,6 +21,7 @@ class RegistrationController extends Controller
             $user=new User;
             $user->name=$requsest->name;
             $user->contact_no=$requsest->contact_no;
+            $user->home_address=$requsest->contact_no;
             $user->email=$requsest->email;
             $user->password=$requsest->password;
             $user->save();

@@ -8,28 +8,67 @@
                 @csrf
                 <div class="mb-3">
                     <label for="name" class="form-label">Name</label>
-                    <input type="text" class="form-control" id="name" placeholder="Please enter name" />
+                    <input type="text" class="form-control @error('name') is-invalid @enderror" name="name"
+                        id="name" placeholder="Please enter name" aria-describedby="validationNameFeedback" />
+                    @error('name')
+                        <div id="validationNameFeedback" class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                    @enderror
                 </div>
+
                 <div class="mb-3">
-                    <label for="name" class="form-label">Contact No</label>
-                    <input type="text" class="form-control" id="name" placeholder="Please enter contact number" />
+                    <label for="contact_no" class="form-label">Contact No</label>
+                    <input type="text" class="form-control @error('contact_no') is-invalid @enderror" name="contact_no"
+                        id="contact_no" placeholder="Please enter contact number"  aria-describedby="validationContactFeedback" />
+                    @error('contact_no')
+                    <div id="validationContactFeedback" class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                    @enderror
+                </div>
+
+                <div class="mb-3">
+                    <label for="address" class="form-label">Address</label>
+                    <input type="text" class="form-control @error('address') is-invalid @enderror" name="address"
+                        id="address" placeholder="Please enter contact number" aria-describedby="validationAddressFeedback"/>
+                        @error('address')
+                        <div id="validationAddressFeedback" class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                        @enderror
                 </div>
                 <div class="mb-3">
                     <label for="email" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="email" placeholder="Please enter email">
+                    <input type="text" class="form-control @error('email') is-invalid @enderror" name="email"
+                        id="email" placeholder="Please enter email" aria-describedby="validationEmailFeedback">
+                        @error('email')
+                        <div id="validationEmailFeedback" class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                        @enderror
                 </div>
                 <div class="mb-3">
-                    <label for="password" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="password" placeholder="Please enter password">
+                    <label for="password" class="form-label" >Password</label>
+                    <input type="password" class="form-control @error('password') is-invalid @enderror" name="password"
+                        id="password" placeholder="Please enter password" aria-describedby="validationPasswordFeedback">
+                        @error('password')
+                        <div id="validationPasswordFeedback" class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                        @enderror
                 </div>
                 <div class="mb-3">
-                    <label for="password" class="form-label">Confirm Password</label>
-                    <input type="password" class="form-control" id="password" placeholder="Please enter confirm password">
+                    <label for="password_confirm" class="form-label">Confirm Password</label>
+                    <input type="password" class="form-control @error('password_confirm') is-invalid @enderror"
+                        id="password_confirm" name="password_confirm" placeholder="Please enter confirm password" aria-describedby="validationPasswordConfirmFeedback">
+                        @error('password_confirm')
+                        <div id="validationPasswordConfirmFeedback" class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                        @enderror
                 </div>
-                <div class="mb-3 form-check">
-                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                    <label class="form-check-label" for="exampleCheck1">Agree with Term and conditions</label>
-                </div>
+
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
         </div>
