@@ -12,7 +12,10 @@
     <script src="{{ asset('assets/bootstrap-5/js/bootstrap.min.js') }}"></script>
     @include('components.nav')
     
-    @yield("contents")
+    <div class="container">
+        @yield("contents")
+    </div>
+    
 
     <script>
         console.log("Scripts working");
