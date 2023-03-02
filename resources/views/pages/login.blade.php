@@ -8,6 +8,15 @@
 <div class="row mt-3">
     <div class="col-md-6 offset-md-3 col-sm-12">
         <h4 class="text-center">Login</h4>
+        @if (Session::has('message'))
+                <div class="row">
+                    <div class="col-md-12">
+
+                        <div class="alert alert-danger">{{ Session::get('message') }}</div>
+
+                    </div>
+                </div>
+            @endif
         <form method="POST" action="login_process">
             @csrf
             <div class="mb-3">

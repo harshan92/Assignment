@@ -26,7 +26,7 @@ class LoginController extends Controller
  
             return redirect('/dashboard');
         }else{
-            return redirect()->back();
+            return redirect()->back()->with('message', 'Invalid credentials');
         }
     }
 
